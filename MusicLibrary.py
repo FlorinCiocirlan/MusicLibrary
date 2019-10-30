@@ -78,8 +78,6 @@ while True:
     user_input = input("What do you want to see? :")
     if user_input == "all albums":
         print(album_name)
-    elif user_input == "all music":
-        print(data)
+    elif user_input == "all music":xs
     else:
         find_by_genre(user_input)
-### ce ai ma nebunule ?!?!?!?!!
