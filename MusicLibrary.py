@@ -50,7 +50,7 @@ def sort_big_list():
           music_genre.append(eachItem[3])
           length_time.append(eachItem[4])
       return artist_name, album_name, release_year, music_genre, length_time
-      
+
 
 sort_big_list()
 
@@ -65,7 +65,7 @@ sort_big_list()
 def find_by_genre(x):
     # x = input("What do you want to see?")
     for eachGenre in list_of_list:
-        if x in eachGenre:
+        if x in eachGenre[3]:
             print(eachGenre)
 
 
