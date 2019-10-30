@@ -82,4 +82,4 @@ while True:
         print(data)
     else:
         find_by_genre(user_input)
-@kldkd
+### ce ai ma nebunule ?!?!?!?!!
