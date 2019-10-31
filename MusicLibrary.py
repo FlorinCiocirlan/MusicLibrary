@@ -43,17 +43,16 @@ length_time = []
 
 
 def sort_big_list():
-      for eachItem in list_of_list:
-          artist_name.append(eachItem[0])
-          album_name.append(eachItem[1])
-          release_year.append(eachItem[2])
-          music_genre.append(eachItem[3])
-          length_time.append(eachItem[4])
-      return artist_name, album_name, release_year, music_genre, length_time
+    for eachItem in list_of_list:
+        artist_name.append(eachItem[0])
+        album_name.append(eachItem[1])
+        release_year.append(eachItem[2])
+        music_genre.append(eachItem[3])
+        length_time.append(eachItem[4])
+    return artist_name, album_name, release_year, music_genre, length_time
 
 
 sort_big_list()
-
 
 
 # This function prints all abums by genre
@@ -66,7 +65,8 @@ def find_by_genre(x):
     # x = input("What do you want to see?")
     for eachGenre in list_of_list:
         if x in eachGenre[3]:
-            print(eachGenre)
+            new_output = " ".join(str(i) for i in eachGenre)
+            print(new_output)
 
 
 # This prints out every sorted list
@@ -75,21 +75,22 @@ def find_by_genre(x):
 print(data, "\nThese are the albums you own\n")
 
 
-#def find_by_length(x):
-    #shortest=0
-   # if x == "shortest album":
-  #      for eachLength in list_of_list
+def find_by_length():
+    x=[]
+    for eachTime in length_time:
+        x.append(eachTime.strip())
+    print(x)
+        
+find_by_length()
 
-
-
+#
 
 while True:
     user_input = input("What do you want to see? :")
     if user_input == "all albums":
-        print(album_name)
+        print_name = "\n".join(str(i) for i in album_name)
+        print(print_name)
     elif user_input == "all music":
         print(data)
-    elif user_input == "shortest album" or "longest album":
-        find_by_length(user_input)
     else:
         find_by_genre(user_input)
