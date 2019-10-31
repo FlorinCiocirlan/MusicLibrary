@@ -1,8 +1,12 @@
 # Open the file from where we want to import music library datas from
 # This script just open it and store informations into a variable name "data"
 
-with open("library.txt") as file:
-    data = file.read()
+def read():
+    with open("library.txt") as file:
+        data = file.read()
+        return data
+
+data=read()
 
 
 # this script creates a list named "list_of_list"
@@ -61,7 +65,8 @@ sort_big_list()
 # The function prints out the certain albums
 
 
-def find_by_genre(x):
+def find_by_genre():
+    x=input("What genre would you like to see ?")
     for eachGenre in list_of_list:
         if x in eachGenre[3]:
             new_output = " ".join(str(i) for i in eachGenre)
@@ -71,25 +76,68 @@ def find_by_genre(x):
 # This prints out every sorted list
 
 
-print(data, "\nThese are the albums you own\n")
-
-
-def find_by_length():
-    x=[]
-    for eachTime in length_time:
-        x.append(eachTime.strip())
-    print(x)
-        
-find_by_length()
 
 #
 
-while True:
-    user_input = input("What do you want to see? :")
-    if user_input == "all albums":
-        print_name = "\n".join(str(i) for i in album_name)
-        print(print_name)
-    elif user_input == "all music":
-        print(data)
-    else:
-        find_by_genre(user_input)
+
+def add_album():
+    details = ["artist name", "name", "release year", "genre", "length"]
+    try:
+        x = [input(" What is the %s of the album ? " % i) for i in details ]
+    except ValueError : " Please insert certain data for specific field"
+    f=open("library.txt","+a")
+    f.write("\n")
+    f.write(",".join(x).title())
+    print(data)
+
+
+def albums_from_given_time():
+    print("What years: ")
+    year1, year2 = map(int, input().split("-"))   
+    for time in list_of_list:                                             
+        if int(time[2]) >= year1 and int(time[2]) < year2:
+            print(" ,".join(time))
+
+        
+def albums_from_given_name():
+    a = []
+    x = input("What album do you want? ")
+    for name in list_of_list:
+        for eachItem in name:                                              
+            if x.lower() in eachItem.lower():
+                a.append(name)
+    print(albums_from_given_name())
+    return a
+
+def albums_by_artist():
+    a = []
+    x = input("What artist do you want? ")
+    for artist in list_of_list:
+        for eachItem in artist_name:                                             
+            if x.lower() in artist[0].lower():
+                a.append(artist)
+    print(",".join(str(eachItem) for eachItem in artist))
+    return a
+
+def shortest_longest_album():
+    a = []
+    b = []
+    for i in length_time:
+        a.append(i.replace(":", ""))
+    for i in a:
+        b.append(int(i))
+    b.sort()
+    a = []                                                                   
+    for i in b:
+        a.append(str(i))
+    b = []
+    for i in a:
+        b.append(i[:-2]+":"+i[-2:])
+    for eachItem in list_of_list:   
+        if b[0] in eachItem:   
+            print("Shortest album is : "," ,".join(eachItem))
+        if b[-1] in eachItem:
+            print("Longest album is  : "," ,".join(eachItem))
+
+
+
