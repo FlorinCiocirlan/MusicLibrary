@@ -13,6 +13,10 @@ Press 8 to add an album
 
 from MusicLibrary import *
 
+
+
+
+
 while True:
     user_input = input("What would you like to do ?")
     if user_input == "1":
@@ -29,6 +33,8 @@ while True:
         albums_by_artist()
     elif user_input == "6":
         albums_from_given_name()
+    elif user_input == "7":
+        get_report()
     elif user_input == "8":
         add_album()
         
