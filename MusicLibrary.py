@@ -62,7 +62,6 @@ sort_big_list()
 
 
 def find_by_genre(x):
-    # x = input("What do you want to see?")
     for eachGenre in list_of_list:
         if x in eachGenre[3]:
             new_output = " ".join(str(i) for i in eachGenre)
