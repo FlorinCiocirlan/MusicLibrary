@@ -74,10 +74,22 @@ def find_by_genre(x):
 
 print(data, "\nThese are the albums you own\n")
 
+
+#def find_by_length(x):
+    #shortest=0
+   # if x == "shortest album":
+  #      for eachLength in list_of_list
+
+
+
+
 while True:
     user_input = input("What do you want to see? :")
     if user_input == "all albums":
         print(album_name)
-    elif user_input == "all music":xs
+    elif user_input == "all music":
+        print(data)
+    elif user_input == "shortest album" or "longest album":
+        find_by_length(user_input)
     else:
         find_by_genre(user_input)
